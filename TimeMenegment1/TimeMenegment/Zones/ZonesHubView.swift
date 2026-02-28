@@ -200,13 +200,21 @@ struct ZonesHubView: View {
             value: cardsAppeared
         )
 
-        if #available(iOS 16.0, *) {
-            NavigationLink(value: Waypoint.zoneDetail(zoneId: zone.id)) {
-                card
+        let isToday = presenter.isTodayZone(zone)
+        if isToday {
+            if #available(iOS 16.0, *) {
+                NavigationLink(value: Waypoint.zoneDetail(zoneId: zone.id)) {
+                    card
+                }
+                .buttonStyle(.plain)
+            } else {
+                NavigationLink(destination: ZoneDetailPlaceholder.makeReal(zoneId: zone.id, router: router)) {
+                    card
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
         } else {
-            NavigationLink(destination: ZoneDetailPlaceholder.makeReal(zoneId: zone.id, router: router)) {
+            Button(action: { presenter.handleAssignToday(zoneId: zone.id) }) {
                 card
             }
             .buttonStyle(.plain)
@@ -464,16 +472,13 @@ struct ZoneCard: View {
                 Spacer()
 
                 if !isTodayZone {
-                    Button(action: onAssignToday) {
-                        Text("Today")
-                            .font(.system(size: 11, weight: .semibold))
-                            .foregroundColor(Palette.ambitionGold)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Palette.ambitionGold.opacity(0.2))
-                            .cornerRadius(Shield.pill)
-                    }
-                    .buttonStyle(.plain)
+                    Text("Today")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundColor(Palette.ambitionGold)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Palette.ambitionGold.opacity(0.2))
+                        .cornerRadius(Shield.pill)
                 }
             }
             .padding(Grid.medium)
