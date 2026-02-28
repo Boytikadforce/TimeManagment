@@ -787,7 +787,7 @@ struct HQActionRow: View {
 struct AppInfoFooter: View {
     var body: some View {
         VStack(spacing: Grid.small) {
-            Text("c11")
+            Text("Sequence")
                 .font(Signal.briefing(16))
                 .foregroundColor(Palette.secondaryLabel)
             Text("Zone Your Day • v1.0")

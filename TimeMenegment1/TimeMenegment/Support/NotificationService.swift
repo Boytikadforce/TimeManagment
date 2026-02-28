@@ -54,7 +54,7 @@ final class NotificationService {
     private func morningReminderBody() -> String {
         guard let day = DataVault.shared.currentFieldDay(),
               let zone = DataVault.shared.zone(by: day.assignedZoneId) else {
-            return "Open c11 to plan your day"
+            return "Open Sequence to plan your day"
         }
         let count = day.deploymentQueue.count
         if count == 0 {

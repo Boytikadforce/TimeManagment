@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  TimeMenegment
+//  Sequence
 //
 //  Created by Евгений on 24.02.2026.
 //

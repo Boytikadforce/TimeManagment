@@ -229,7 +229,7 @@ struct BriefingStep_Welcome: View {
 
             // Title
             VStack(spacing: Grid.small) {
-                Text("c11")
+                Text("Sequence")
                     .font(.system(size: 48, weight: .black, design: .rounded))
                     .foregroundColor(Palette.ambitionGold)
 

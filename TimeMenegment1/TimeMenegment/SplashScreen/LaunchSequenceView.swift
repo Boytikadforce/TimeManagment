@@ -91,7 +91,7 @@ struct LaunchSequenceView: View {
                         .rotationEffect(.degrees(ringRotation * 1.3))
 
                     // Logo text
-                    Text("c11")
+                    Text("Sequence")
                         .font(.system(size: 42, weight: .black, design: .rounded))
                         .foregroundColor(Palette.ambitionGold)
                         .shadow(color: Palette.ambitionGold.opacity(glowPulse ? 0.8 : 0.2), radius: glowPulse ? 20 : 5)

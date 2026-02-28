@@ -169,7 +169,7 @@ final class CommandCenterInteractor: CommandCenterInteracting {
         let rank = fetchRankInfo()
 
         return """
-        📊 c11 — Zone Your Day
+        📊 Sequence — Zone Your Day
 
         🎖 Rank: \(rank.currentRank.badge) \(rank.currentRank.title)
         ⭐ Lifetime XP: \(stats.lifetimePoints)
